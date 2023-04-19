@@ -17,7 +17,6 @@ export default {
     methods: {
     },
     mounted() {
-        // store.fetchMovie(store.API_URL)
     },
 }
 </script>

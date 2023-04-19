@@ -3,13 +3,16 @@ import axios from "axios";
 
 export const store = reactive({
   loading: true,
-  API_URL: "https://db.ygoprodeck.com/api/v7/cardinfo.php?num=40&offset=2481",
-  movies: null,
-  fetchMovie(url) {
+  API_URL: "https://api.themoviedb.org/3/search/movie",
+  API_KEY: "5cb6e91b738a69ca58008c188eeebb3f",
+  search: '',
+  movies: [],
+  fetchMovie() {
+    let url = `${this.API_URL}?api_key=${this.API_KEY}&query=${this.search.toLowerCase()}`;
     axios
       .get(url)
       .then((response) => {
-        this.cards = response.data;
+        this.movies = response.data.results;
         this.loading = false;
       })
       .catch((err) => {
