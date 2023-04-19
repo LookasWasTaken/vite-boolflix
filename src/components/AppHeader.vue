@@ -13,7 +13,20 @@ export default {
         }
     },
     methods: {
-    },
+        setLanguage(language) {
+            switch (language) {
+                case "ja":
+                    return "jp";
+                case "en":
+                    return "gb";
+                case "ko":
+                    return "kr";
+                // Altre lingue
+                default:
+                    return language;
+            }
+        }
+    }
 }
 </script>
 
@@ -36,7 +49,7 @@ export default {
                     <h2>Movie {{ index }}</h2>
                     <p>Title: {{ movie.title }}</p>
                     <p>Original title: {{ movie.original_title }}</p>
-                    <p>Language: {{ movie.original_language }} <country-flag :country="(movie.original_language)"
+                    <p>Language: {{ movie.original_language }} <country-flag :country="setLanguage(movie.original_language)"
                             size='normal' :rounded="true" :shadow="true" /></p>
                     <p>Score: {{ movie.vote_average }}</p>
                 </li>
