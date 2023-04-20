@@ -1,1 +1,21 @@
 @use "./variables.scss" as *;
+
+main{
+    background-color: $dark;
+    color: $light;
+    ul {
+        list-style: none;
+        padding-left: 0;
+        margin-bottom: 0;
+        img{
+            transition: all 0.5s;
+            box-shadow:  0px 0px 10px $accent;
+            &:hover{
+                scale: 1.03;
+            }
+            &:active{
+                scale: 0.96;
+            }
+        }
+    }
+}

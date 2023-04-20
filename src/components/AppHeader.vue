@@ -5,7 +5,6 @@ import CountryFlag from 'vue-country-flag-next'
 export default {
     name: 'AppHeader',
     components: {
-        CountryFlag,
     },
     data() {
         return {
@@ -13,69 +12,30 @@ export default {
         }
     },
     methods: {
-        setLanguage(language) {
-            switch (language) {
-                case "ja":
-                    return "jp";
-                case "en":
-                    return "gb";
-                case "ko":
-                    return "kr";
-                // Altre lingue
-                default:
-                    return language;
-            }
-        }
     }
 }
 </script>
 
 <template>
     <header>
-        <nav class="d-flex justify-content-between align-items-center">
-            <div class="logo">
-                <h1>Netflix</h1>
+        <nav class="d-flex justify-content-between align-items-center px-5 flex-wrap">
+            <div class="logo d-flex justify-content-between align-items-center">
+                <img class="img-fluid" src="../assets/img/logo.svg" width="200" alt="">
             </div>
             <div class="search">
-                <div class="input-group mb-3">
+                <div class="input-group">
                     <input @keyup.enter="store.fetchMovie(), store.fetchSeries()" type="text" class="form-control"
                         placeholder="Search Movie" aria-label="Search Movie" aria-describedby="button-addon2"
                         v-model.trim="store.search">
                     <button @click="store.fetchMovie(), store.fetchSeries()" class="btn btn-outline-secondary" type="button"
-                        id="button-addon2">Search</button>
+                        id="button-addon2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                            fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                            <path
+                                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                        </svg></button>
                 </div>
             </div>
         </nav>
-        <div class="container">
-            <ul v-if="store.movies.length > 0">
-                <li>
-                    <h2>Movies</h2>
-                </li>
-                <li v-for="(movie, index) in store.movies">
-                    <img v-if="movie.poster_path" :src="`${store.pathCover}${movie.poster_path}`" :alt="`${movie.title} cover image`">
-                    <h2>Movie {{ index }}</h2>
-                    <p>Title: {{ movie.title }}</p>
-                    <p v-if="movie.title != movie.original_title">Original title: {{ movie.original_title }}</p>
-                    <p>Language: {{ movie.original_language }} <country-flag :country="setLanguage(movie.original_language)"
-                            size='normal' :rounded="true" :shadow="true" /></p>
-                    <p>Score: {{ movie.vote_average }}</p>
-                </li>
-            </ul>
-            <ul v-if="store.series.length > 0">
-                <li>serie
-                    <h2>Series</h2>
-                </li>
-                <li v-for="(serie, index) in store.series">
-                    <img v-if="serie.poster_path" :src="`${store.pathCover}${serie.poster_path}`" :alt="`${serie.name} cover image`">
-                    <h2>Serie {{ index }}</h2>
-                    <p>Title: {{ serie.name }}</p>
-                    <p v-if="serie.name != serie.original_name">Original title: {{ serie.original_name }}</p>
-                    <p>Language: {{ serie.original_language }} <country-flag :country="setLanguage(serie.original_language)"
-                            size='normal' :rounded="true" :shadow="true" /></p>
-                    <p>Score: {{ serie.vote_average }}</p>
-                </li>
-            </ul>
-        </div>
     </header>
 </template>
 
@@ -84,8 +44,4 @@ header {
     color: white;
     background-color: black;
     padding: 1rem;
-
-    ul {
-        list-style: none;
-    }
 }</style>
