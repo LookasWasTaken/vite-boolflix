@@ -36,11 +36,12 @@ export default {
 <template>
     <main>
         <div class="container">
-            <h2>Movies</h2>
+            <h2 class="my-3">Movies</h2>
             <ul class="row row-cols-2 row-cols-md-3 row-cols-lg-5 g-3" v-if="store.movies.length > 0">
-                <li class="col" v-for="(movie, index) in store.movies">
-                    <img class="img-fluid h-50" v-if="movie.poster_path" :src="`${store.pathCover}${movie.poster_path}`"
-                        :alt="`${movie.title} cover image`">
+                <li class="col h-100 my-3" v-for="(movie, index) in store.movies">
+                    <img class="img-fluid" v-if="movie.poster_path === null" src="../assets/img/nophoto.jpeg" :alt="`${movie.name} cover image`">
+                    <img class="img-fluid" v-else :src="`${store.pathCover}${movie.poster_path}`"
+                        :alt="`${movie.name} cover image`">
                     <h2>Movie {{ index }}</h2>
                     <p>Title: {{ movie.title }}</p>
                     <p v-if="movie.title != movie.original_title">Original title: {{ movie.original_title }}</p>
@@ -60,10 +61,11 @@ export default {
                     </p>
                 </li>
             </ul>
-            <h2>Series</h2>
-            <ul class="row row-cols-2 row-cols-md-3 row-cols-lg-5 g-3" v-if="store.series.length > 0">
-                <li class="col" v-for="(serie, index) in store.series">
-                    <img class="img-fluid h-50" v-if="serie.poster_path" :src="`${store.pathCover}${serie.poster_path}`"
+            <h2 class="my-3">Series</h2>
+            <ul class="row row-cols-2 row-cols-md-3 row-cols-lg-5 g-4" v-if="store.series.length > 0">
+                <li class="col h-100 my-3" v-for="(serie, index) in store.series">
+                    <img class="img-fluid" v-if="serie.poster_path === null" src="../assets/img/nophoto.jpeg" :alt="`${serie.name} cover image`">
+                    <img class="img-fluid" v-else :src="`${store.pathCover}${serie.poster_path}`"
                         :alt="`${serie.name} cover image`">
                     <h2>Serie {{ index }}</h2>
                     <p>Title: {{ serie.name }}</p>

@@ -21,5 +21,6 @@ export default {
 footer{
     color: white;
     background-color: black;
+    height: 7vh;
 }
 </style>

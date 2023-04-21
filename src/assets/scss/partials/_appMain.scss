@@ -1,15 +1,22 @@
 @use "./variables.scss" as *;
 
 main{
+    padding: 1.5rem 0;
     background-color: $dark;
     color: $light;
+    height: calc(100vh - 20vh);
+    overflow-y: auto;
+    h2{
+        margin-bottom: 0;
+        padding: 1.5rem 0;
+    }
     ul {
         list-style: none;
         padding-left: 0;
         margin-bottom: 0;
         img{
+            height: 350px !important;
             transition: all 0.5s;
-            box-shadow:  0px 0px 10px $accent;
             &:hover{
                 scale: 1.03;
             }
@@ -17,5 +24,22 @@ main{
                 scale: 0.96;
             }
         }
+    }
+    &::-webkit-scrollbar {
+        width: 10px;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+        background-color: var($light);
+        border-radius: 20px;
+    }
+    
+    &::-webkit-scrollbar-thumb:hover {
+        background-color: var($accent);
+    }
+    
+    &::-webkit-scrollbar-track {
+        background-color: var(red);
+        border-radius: 10px;
     }
 }
