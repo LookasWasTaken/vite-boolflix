@@ -1,4 +1,5 @@
 <script>
+import { store } from "../assets/data/store";
 import CardGenerator from "./CardGenerator.vue";
 
 export default {
@@ -8,7 +9,7 @@ export default {
     },
     data() {
         return {
-            
+            store
         }
     },
     methods: {

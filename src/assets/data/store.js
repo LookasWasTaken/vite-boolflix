@@ -33,6 +33,7 @@ export const store = reactive({
       .then((response) => {
         this.movies = response.data.results;
         this.loading = false;
+        this.trending= [];
       })
       .catch((err) => {
         console.log(err);
@@ -46,6 +47,7 @@ export const store = reactive({
       .then((response) => {
         this.series = response.data.results;
         this.loading = false;
+        this.trending= [];
       })
       .catch((err) => {
         console.log(err);
