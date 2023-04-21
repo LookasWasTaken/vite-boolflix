@@ -20,6 +20,8 @@ export const store = reactive({
     .then((response) => {
       this.trending = response.data.results;
       this.loading = false;
+      this.movies= [];
+      this.series= [];
     })
     .catch((err) => {
       console.log(err);

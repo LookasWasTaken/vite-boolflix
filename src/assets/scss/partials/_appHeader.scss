@@ -1,1 +1,15 @@
 @use "./variables.scss" as *;
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    color: white;
+    background-color: black;
+    padding: 1rem;
+    height: 13vh;
+    .logo{
+        cursor: pointer;
+    }
+}

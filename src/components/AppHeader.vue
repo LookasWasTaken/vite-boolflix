@@ -20,7 +20,7 @@ export default {
 
 <template>
     <header class="px-5">
-        <div class="logo d-flex justify-content-between align-items-center">
+        <div @click="store.fetchTrending()" class="logo d-flex justify-content-between align-items-center">
             <img class="img-fluid" src="../assets/img/logo.svg" width="200" alt="">
         </div>
         <div class="search">
@@ -40,14 +40,4 @@ export default {
 </template>
 
 <style lang="scss">
-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    color: white;
-    background-color: black;
-    padding: 1rem;
-    height: 13vh;
-}
 </style>
