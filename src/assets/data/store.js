@@ -7,10 +7,25 @@ export const store = reactive({
   API_KEY: "5cb6e91b738a69ca58008c188eeebb3f",
   pathMovies: "search/movie",
   pathSeries: "search/tv",
+  pathTrending: "/trending/all/day",
   pathCover: "https://image.tmdb.org/t/p/w342",
   search: '',
   movies: [],
   series: [],
+  trending: [],
+  fetchTrending(){
+    let url = `${this.API_URL + this.pathTrending}?api_key=${this.API_KEY}`;
+    axios
+    .get(url)
+    .then((response) => {
+      this.trending = response.data.results;
+      this.loading = false;
+    })
+    .catch((err) => {
+      console.log(err);
+      console.error(err.messagge);
+    });
+  },
   fetchMovie() {
     let url = `${this.API_URL + this.pathMovies}?api_key=${this.API_KEY}&query=${this.search.toLowerCase()}`;
     axios

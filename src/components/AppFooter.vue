@@ -12,15 +12,14 @@ export default {
 </script>
 
 <template>
-    <footer>
-        <div>sono un footer</div>
+    <footer class="d-flex align-items-center justify-content-center">
+        <div class="container">
+            <div class="d-flex align-items-center justify-content-center gap-3">
+                <span>&copy; Netflix 1997-2023</span>
+                <span>Developed by <a href="https://github.com/LookasWasTaken">LookasWasTaken</a></span>
+            </div>
+        </div>
     </footer>
 </template>
 
-<style lang="scss">
-footer{
-    color: white;
-    background-color: black;
-    height: 7vh;
-}
-</style>
+<style lang="scss"></style>

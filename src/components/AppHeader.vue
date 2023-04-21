@@ -11,6 +11,9 @@ export default {
         }
     },
     methods: {
+    },
+    mounted(){
+        store.fetchTrending()
     }
 }
 </script>
@@ -23,7 +26,7 @@ export default {
         <div class="search">
             <div class="input-group">
                 <input @keyup.enter="store.fetchMovie(), store.fetchSeries()" type="text" class="form-control"
-                    placeholder="Cosa vuoi vedere?" aria-label="Search Movie" aria-describedby="button-addon2"
+                    placeholder="Titles, persons, genres..." aria-label="Search Movie" aria-describedby="button-addon2"
                     v-model.trim="store.search">
                 <button @click="store.fetchMovie(), store.fetchSeries()" class="btn btn-outline-secondary" type="button"
                     id="button-addon2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
